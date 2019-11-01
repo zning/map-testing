@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState} from "react";
+import ReactDOM from "react-dom";
+import NewWindow from "react-new-window";
+import {Map1, Map2} from "./map.js";
+import "./App.css";
 
-function App() {
+export default function App() {
+  const [isPopOut, setIsPopOut] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Google Map Pop Example</h1>
+      <button
+        style={{
+          marginBottom: "20px" ,
+          padding:'10px',
+          borderRadius: '5px',
+        }}
+        onClick={() => {
+          setIsPopOut(!isPopOut);
+        }}
+      >
+        Pop Out google map:{isPopOut.toString()}
+      </button>
+
+      {!isPopOut&&<Map1 />}
+
+      {isPopOut && (
+        <NewWindow>
+          <Map1 />
+        </NewWindow>
+      )}
     </div>
   );
 }
 
-export default App;
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
