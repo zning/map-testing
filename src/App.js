@@ -23,11 +23,11 @@ export default function App() {
         Pop Out google map:{isPopOut.toString()}
       </button>
 
-      {!isPopOut&&<Map1 />}
+      {!isPopOut&&<Map2 />}
 
       {isPopOut && (
         <NewWindow>
-          <Map1 />
+          <Map2 />
         </NewWindow>
       )}
     </div>
