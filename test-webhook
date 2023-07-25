@@ -1,0 +1,5 @@
+{
+    "_misc": [
+        "Expected \"Content-Type\" header to be one of {'multipart/form-data', 'application/json', 'application/x-www-form-urlencoded'}."
+    ]
+}
